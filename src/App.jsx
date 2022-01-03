@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Phonebook />
+          <Phonebook {...this.state}/>
         </header>
       </div>
     );

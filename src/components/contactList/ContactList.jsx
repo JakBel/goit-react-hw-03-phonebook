@@ -1,40 +1,23 @@
 import React from "react";
+import styles from "./ContactList.module.css";
 
-const ContactList = ({ filter, contacts, deleteContact }) => {
+const ContactList = ({ contacts, filter, deleteContact }) => {
   return (
-    <div>
-      <ul>
-        {filter === ""
-          ? contacts.map(({ id, name, number }) => (
-              <li key={id}>
-                {name}: {number}
-                <button
-                  type="button"
-                  className="delete-button"
-                  onClick={() => deleteContact(id)}
-                >
-                  Delete
-                </button>
-              </li>
-            ))
-          : contacts
-              .filter(({ name }) =>
-                name.toLowerCase().includes(filter.toLowerCase())
-              )
-              .map(({ id, name, number }) => (
-                <li key={id}>
-                  {name}: {number}
-                  <button
-                    type="button"
-                    className="delete-button"
-                    onClick={() => deleteContact(id)}
-                  >
-                    Delete
-                  </button>
-                </li>
-              ))}
-      </ul>
-    </div>
+    <ul className={styles.contacts} style={{ padding: 0 }}>
+      {contacts.map(({ id, name, number }) => {
+        return name.toLowerCase().includes(filter.toLowerCase()) ? (
+          <li key={id} className={styles.contact}>
+            {name} {number}
+            <button
+              className={styles.btn_delete}
+              onClick={() => deleteContact(id)}
+            >
+              Delete
+            </button>
+          </li>
+        ) : null;
+      })}
+    </ul>
   );
 };
 

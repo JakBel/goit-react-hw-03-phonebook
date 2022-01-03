@@ -1,0 +1,27 @@
+.contacts {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.contact {
+  font-size: 20px;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.btn__delete {
+  border: none;
+  cursor: pointer;
+  background-color: rgba(255, 157, 0, 0.918);
+  color: aliceblue;
+  font-size: 15px;
+  border-radius: 3px;
+  font-style: italic;
+}
+
+.btn__delete:hover {
+  background-color: rgba(255, 157, 0, 0.445);
+  color: black;
+}
